@@ -5,7 +5,6 @@
 get_icon() {
   case $1 in
     01d) icon="";;
-    # 01d) icon="󰖨";;
     01n) icon="";;
     02d) icon="🌤️";;
     02n) icon="☁️";;
@@ -21,8 +20,8 @@ get_icon() {
     11n) icon="⛈️";;
     13d) icon="❄️";;
     13n) icon="❄️";;
-    50d) icon="🌁";;
-    50n) icon="🌫️";;
+    50d) icon="";;
+    50n) icon="";;
     *) icon="❔";
 
     # these look great but do not always work

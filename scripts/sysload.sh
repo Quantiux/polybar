@@ -22,4 +22,3 @@ mem_load=$(free -m | awk '/Mem/{printf("%.0f\n", $3/$2 * 100)}')
 
 # echo outout
 echo "%{F$cpu_color} %{F-}$cpu_load% %{F$mem_color} %{F-}$mem_load%"
-# echo "%{F#f0c674}C:%{F-}$cpu_load %{F#f0c674}M:%{F-}$mem_load %{F#f0c674}L:%{F-}$sys_load"
