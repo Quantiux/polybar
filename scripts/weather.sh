@@ -10,8 +10,8 @@ get_icon() {
     02n) icon=" ";;
     03d) icon=" ";;
     03n) icon=" ";;
-    04d) icon=" ";;
-    04n) icon=" ";;
+    04d) icon=" ";;
+    04n) icon=" ";;
     09d) icon=" ";;
     09n) icon=" ";;
     10d) icon=" ";;
