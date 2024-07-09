@@ -25,4 +25,4 @@ else
 fi
 
 # Print the usage in the format required by Polybar
-echo "%{F$root_color}/%{F-}$root_usage% %{F$home_color}/󰋜%{F-} $home_usage%"
+echo "%{F$root_color}/%{F-}$root_usage% %{F$home_color}/%{F-} $home_usage%"
