@@ -6,6 +6,7 @@ if ping -q -c 1 -W 1 8.8.8.8 > /dev/null 2>&1; then
     echo "IP unavailable"
   else
     echo "$IP"
+    # echo "%{F#f0c674}%{F-} $IP"
   fi
 else
   echo "No connection"
