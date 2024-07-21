@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-alert_color="#e74c3c"
+alert_color="#ff4500"
 normal_color="#f0c674"
 
 # get load
