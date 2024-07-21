@@ -19,7 +19,7 @@ battery_percent=$(("$battery_level * 100 / $battery_max"))
 
 charging_color="#00FF00"
 discharging_color="#f0c674"
-alert_color="#e74c3c"
+alert_color="#ff4500"
 if [ "$ac" -eq 1 ]; then
     if [ "$battery_percent" -gt 97 ]; then
         echo "%{F$charging_color}󰁹%{F-}"
