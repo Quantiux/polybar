@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 # sensors output depends on hardware (your mileage may vary)
-alert_color="#e74c3c"
+alert_color="#ff4500"
 normal_color="#f0c674"
+fan_color="#ff7352"
 host=$(hostname)
 if [ "$host" = "Nbook" ]; then
 
@@ -11,6 +12,8 @@ if [ "$host" = "Nbook" ]; then
   # gpu_temp=$(sensors | awk '/edge/{printf "%.0f°C\n", $2}')
   mem_temp=$(sensors | awk '/SODIMM/{printf "%.0f\n", $2}')
   ssd_temp=$(sensors | awk '/Composite/{printf "%.0f\n", $2}')
+  # get fan speed
+  fan_speed=$(sensors | grep 'Processor Fan:' | awk '{print $3}')
   
   # set color
   if [ "$cpu_temp" -ge 90 ]; then
@@ -30,7 +33,11 @@ if [ "$host" = "Nbook" ]; then
   fi
   
   # echo outout
-  echo "%{F$cpu_color} %{F-}$cpu_temp°C %{F$mem_color} %{F-}$mem_temp°C %{F$ssd_color} %{F-}$ssd_temp°C"
+  if [ "$fan_speed" -gt 0 ]; then
+    echo "%{F$cpu_color} %{F-}$cpu_temp°C %{F$mem_color} %{F-}$mem_temp°C %{F$ssd_color} %{F-}$ssd_temp°C %{F$fan_color} %{F-}$fan_speed RPM"
+  else
+    echo "%{F$cpu_color} %{F-}$cpu_temp°C %{F$mem_color} %{F-}$mem_temp°C %{F$ssd_color} %{F-}$ssd_temp°C"
+  fi
   
 elif [ "$host" = "PC" ]; then
 
