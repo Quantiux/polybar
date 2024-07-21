@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Function to get percentage used for a partition
-alert_color="#e74c3c"
+alert_color="#ff4500"
 normal_color="#f0c674"
 get_partition_usage() {
     partition="$1"
