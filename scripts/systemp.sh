@@ -4,8 +4,7 @@
 alert_color="#ff4500"
 normal_color="#f0c674"
 fan_color="#ff7352"
-host=$(hostname)
-if [ "$host" = "Nbook" ]; then
+if [ "$hostname" = "Nbook" ]; then
 
   # get temperature
   cpu_temp=$(sensors | awk '/CPU/{printf "%.0f\n", $2}')
@@ -13,7 +12,8 @@ if [ "$host" = "Nbook" ]; then
   mem_temp=$(sensors | awk '/SODIMM/{printf "%.0f\n", $2}')
   ssd_temp=$(sensors | awk '/Composite/{printf "%.0f\n", $2}')
   # get fan speed
-  fan_speed=$(sensors | grep 'Processor Fan:' | awk '{print $3}')
+  # fan_speed=$(sensors | grep 'Processor Fan:' | awk '{print $3}')
+  fan_speed=0 # hide fan speed
   
   # set color
   if [ "$cpu_temp" -ge 90 ]; then
@@ -39,7 +39,7 @@ if [ "$host" = "Nbook" ]; then
     echo "%{F$cpu_color} %{F-}$cpu_temp°C %{F$mem_color} %{F-}$mem_temp°C %{F$ssd_color} %{F-}$ssd_temp°C"
   fi
   
-elif [ "$host" = "PC" ]; then
+elif [ "$hostname" = "PC" ]; then
 
   cpu_temp=$(sensors | awk '/Package id 0/{printf "%.0f\n", $4}')
   gpu_temp=$(sensors | grep temp1 | awk 'NR==2 {printf "%.0f\n", $2}')
