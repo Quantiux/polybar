@@ -2,7 +2,7 @@
 
 # Get available updates and their count
 updates=$(mintupdate-cli list)
-count=$(echo "$updates" | wc -l)
+count=$(echo $($updates | wc -l))
 
 # Display updates count on Polybar
 if [ "$count" -gt 0 ]; then
